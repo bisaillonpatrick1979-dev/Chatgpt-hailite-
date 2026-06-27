@@ -2,11 +2,17 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 18px;
+}
+
 body {
   margin: 0;
   background: #f8fafc;
   color: #0f172a;
   font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -16,4 +22,41 @@ a {
 
 button, input, select, textarea {
   font: inherit;
+}
+
+button, a {
+  min-height: 48px;
+}
+
+.large-readable {
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.big-number {
+  font-size: clamp(2.25rem, 8vw, 4.5rem);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.card-readable {
+  border: 1px solid #cbd5e1;
+  border-radius: 1.5rem;
+  background: #ffffff;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.status-dot {
+  display: inline-flex;
+  height: 0.9rem;
+  width: 0.9rem;
+  border-radius: 999px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 19px;
+  }
 }

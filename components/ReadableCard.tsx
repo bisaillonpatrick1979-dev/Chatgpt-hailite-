@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 type CardProps = {
   title: string;
   value?: string;
@@ -22,13 +24,9 @@ export function ReadableCard({ title, value, detail, tone = "default" }: CardPro
   );
 }
 
-export function LargeButton({ children, href }: { children: React.ReactNode; href?: string }) {
+export function LargeButton({ children, href }: { children: ReactNode; href?: string }) {
   const className = "flex min-h-16 items-center justify-center rounded-2xl bg-slate-950 px-5 py-4 text-center text-lg font-black text-white shadow-sm";
-
-  if (href) {
-    return <a href={href} className={className}>{children}</a>;
-  }
-
+  if (href) return <a href={href} className={className}>{children}</a>;
   return <button className={className}>{children}</button>;
 }
 

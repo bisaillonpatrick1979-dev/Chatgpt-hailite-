@@ -6,6 +6,7 @@ import { PayrollMini } from "@/components/PayrollMini";
 import { CatalogTools } from "@/components/CatalogTools";
 import { InventoryTools } from "@/components/InventoryTools";
 import { SignatureBox } from "@/components/SignatureBox";
+import { InvoiceCalculator } from "@/components/InvoiceCalculator";
 
 export default function Admin() {
   return (
@@ -23,6 +24,7 @@ export default function Admin() {
       </section>
       <AdminTools />
       <BusinessTools />
+      <InvoiceCalculator />
       <SignatureBox />
       <CatalogTools />
       <InventoryTools />

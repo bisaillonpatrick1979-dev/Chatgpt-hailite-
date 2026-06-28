@@ -3,20 +3,20 @@ import Link from "next/link";
 import { BarChart3, Box, BriefcaseBusiness, Calculator, Clock3, FileText, Home, MapPin, Settings, UsersRound } from "lucide-react";
 
 const navItems = [
-  { href: "/", label: "Accueil", icon: Home },
-  { href: "/invoices", label: "Factures", icon: FileText },
+  { href: "/dashboard", label: "Accueil", icon: Home },
   { href: "/projects", label: "Projets", icon: MapPin },
-  { href: "/calculator", label: "Calcul", icon: Calculator },
+  { href: "/crew", label: "Employes", icon: UsersRound },
+  { href: "/invoices", label: "Factures", icon: FileText },
   { href: "/production", label: "Stats", icon: BarChart3 },
   { href: "/punch", label: "Punch", icon: Clock3 },
   { href: "/settings", label: "Reglages", icon: Settings }
 ];
 
 const sideItems = [
-  { href: "/", label: "Tableau de bord", icon: BarChart3 },
-  { href: "/punch", label: "Punch", icon: Clock3 },
+  { href: "/dashboard", label: "Tableau de bord", icon: BarChart3 },
   { href: "/projects", label: "Chantiers et taches", icon: MapPin },
-  { href: "/worker", label: "RH", icon: UsersRound },
+  { href: "/crew", label: "Portail employes", icon: UsersRound },
+  { href: "/punch", label: "Punch", icon: Clock3 },
   { href: "/invoices", label: "Facturation", icon: FileText },
   { href: "/calculator", label: "Calculatrice", icon: Calculator },
   { href: "/contractor", label: "Sous-traitants", icon: BriefcaseBusiness },
@@ -58,20 +58,15 @@ export function AppShell({ children }: { children: ReactNode }) {
                 <p className="text-xs font-black uppercase tracking-widest text-orange-400">Gestion Chantier Pro</p>
               </div>
             </div>
-            <div className="hidden lg:block">
-              <p className="text-sm font-black uppercase tracking-widest text-orange-400">Mode lisibilite elevee</p>
-            </div>
+            <div className="hidden lg:block"><p className="text-sm font-black uppercase tracking-widest text-orange-400">Mode lisibilite elevee</p></div>
             <div className="flex items-center gap-3">
-              <span className="hidden rounded-lg bg-orange-500 px-4 py-2 text-sm font-black text-white md:inline-flex">Guide de Validation app</span>
+              <Link href="/" className="hidden rounded-lg bg-slate-800 px-4 py-2 text-sm font-black text-white md:inline-flex">Setup</Link>
               <span className="rounded-lg bg-slate-800 px-3 py-2 text-sm font-black">FR</span>
               <span className="hidden text-base font-black md:inline">Patrick Bisaillon</span>
-              <button className="rounded-lg border border-red-900 bg-red-950/50 px-4 py-2 text-sm font-black text-red-200">Deconnexion</button>
             </div>
           </div>
         </header>
-
         <section className="mx-auto max-w-7xl px-4 py-6 pb-28">{children}</section>
-
         <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-800 bg-[#101722] px-1 py-2 lg:hidden">
           <div className="grid grid-cols-7 gap-1">
             {navItems.map((item) => {
@@ -85,7 +80,6 @@ export function AppShell({ children }: { children: ReactNode }) {
             })}
           </div>
         </nav>
-
         <button className="fixed bottom-24 right-5 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-3xl shadow-2xl lg:bottom-8">✨</button>
       </div>
     </main>

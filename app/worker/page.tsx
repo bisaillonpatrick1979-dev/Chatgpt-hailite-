@@ -1,13 +1,16 @@
-import { AppShell } from "@/components/AppShell";
-import { PageHeader } from "@/components/PageHeader";
-import { ReadableList } from "@/components/ReadableList";
+import { AppShell, ProMetric } from "@/components/AppShell";
 
 export default function Worker() {
   return (
     <AppShell>
-      <PageHeader title="Employe" eyebrow="Portail terrain" text="L employe voit seulement son chantier, son punch, ses taches, ses photos, ses heures et sa journee." />
-      <section className="mt-5">
-        <ReadableList items={["Punch In / Punch Out", "Taches assignees", "Photos de preuve", "Signature de journee"]} />
+      <section className="pro-card p-6">
+        <h1 className="text-5xl font-black">Portail employe</h1>
+        <p className="large-readable mt-3 text-slate-400">Chantier assigne, punch, taches, photos, heures et signature de journee.</p>
+      </section>
+      <section className="mt-5 grid gap-4 md:grid-cols-3">
+        <ProMetric label="Heures" value="0.0" note="Cette semaine" tone="blue" />
+        <ProMetric label="Taches" value="4" note="Assignees" tone="orange" />
+        <ProMetric label="Paie" value="0$" note="Estimation CAD" tone="green" />
       </section>
     </AppShell>
   );

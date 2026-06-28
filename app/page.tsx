@@ -1,33 +1,50 @@
 import Link from "next/link";
 
+const people = [
+  { name: "Patrick Bisaillon", role: "Administrateur", initials: "PB", href: "/admin", color: "bg-orange-600" },
+  { name: "Mathieu Cote", role: "Employe", initials: "MC", href: "/worker", color: "bg-blue-600" },
+  { name: "Stephane Roy", role: "Sous-traitant", initials: "SR", href: "/contractor", color: "bg-purple-600" },
+  { name: "Alex Tremblay", role: "Employe", initials: "AT", href: "/worker", color: "bg-green-600" }
+];
+
 export default function Root() {
   return (
-    <main className="min-h-screen bg-[#0b0f17] p-4 text-slate-100">
-      <section className="mx-auto max-w-5xl pt-8">
-        <div className="rounded-3xl border border-slate-800 bg-[#101722] p-6 shadow-2xl">
-          <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-600 text-3xl font-black">HX</div>
-            <div>
-              <p className="text-sm font-black uppercase tracking-widest text-orange-400">Premiere configuration</p>
-              <h1 className="text-4xl font-black md:text-6xl">Bienvenue dans Hailite Manager</h1>
+    <main className="min-h-screen bg-[#070b12] p-4 text-slate-100">
+      <section className="mx-auto max-w-6xl pt-6">
+        <div className="rounded-[2rem] border border-slate-800 bg-[radial-gradient(circle_at_top_left,#1f2937,#0b0f17_55%)] p-6 shadow-2xl">
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+            <div className="flex items-center gap-4">
+              <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-orange-600 text-4xl font-black text-white shadow-xl">HX</div>
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.3em] text-orange-400">Hailite Manager</p>
+                <h1 className="text-4xl font-black leading-tight md:text-6xl">Choisis ton profil</h1>
+              </div>
             </div>
+            <Link href="/settings" className="rounded-2xl bg-slate-800 px-5 py-4 text-center text-lg font-black text-white">Setup region</Link>
           </div>
-          <p className="large-readable mt-6 text-slate-300">Choisis la langue, le pays, la province, les taxes, la devise et les unites avant de creer ton espace administrateur.</p>
+          <p className="large-readable mt-6 max-w-4xl text-slate-300">Administrateurs, employes et sous-traitants utilisent le meme ecran. Le PIN ouvre seulement les donnees autorisees pour ce profil.</p>
         </div>
 
-        <section className="mt-6 grid gap-4 md:grid-cols-3">
-          <div className="pro-card p-5"><p className="text-sm font-black uppercase tracking-widest text-slate-400">Langue</p><p className="mt-3 text-4xl font-black text-orange-400">FR</p><p className="mt-2 text-lg font-bold text-slate-300">Francais par defaut</p></div>
-          <div className="pro-card p-5"><p className="text-sm font-black uppercase tracking-widest text-slate-400">Region</p><p className="mt-3 text-4xl font-black text-blue-400">Alberta</p><p className="mt-2 text-lg font-bold text-slate-300">Canada · GST 5%</p></div>
-          <div className="pro-card p-5"><p className="text-sm font-black uppercase tracking-widest text-slate-400">Unites</p><p className="mt-3 text-4xl font-black text-green-400">pi2</p><p className="mt-2 text-lg font-bold text-slate-300">Pieds, pouces, CAD</p></div>
+        <section className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {people.map((person) => (
+            <article key={person.name} className="rounded-[1.7rem] border border-slate-800 bg-[#101722] p-5 shadow-2xl">
+              <div className="flex items-center gap-4">
+                <div className={`flex h-20 w-20 items-center justify-center rounded-3xl ${person.color} text-3xl font-black text-white shadow-xl`}>{person.initials}</div>
+                <div>
+                  <h2 className="text-2xl font-black text-white">{person.name}</h2>
+                  <p className="mt-1 text-lg font-bold text-slate-400">{person.role}</p>
+                </div>
+              </div>
+              <input className="mt-5 w-full rounded-2xl border border-slate-700 bg-slate-950 p-4 text-center text-2xl font-black tracking-widest text-white" placeholder="PIN" />
+              <Link href={person.href} className="mt-4 flex justify-center rounded-2xl bg-orange-600 p-4 text-xl font-black text-white">Entrer</Link>
+            </article>
+          ))}
         </section>
 
-        <section className="pro-panel mt-6 p-6">
-          <h2 className="text-3xl font-black text-white">Etape suivante</h2>
-          <p className="large-readable mt-3 text-slate-300">Apres cette configuration, l administrateur peut envoyer un lien aux employes. Les employes ouvrent leur portail, choisissent leur avatar, entrent leur code, puis voient seulement leurs chantiers, taches, heures et paie.</p>
-          <div className="mt-6 grid gap-3 md:grid-cols-2">
-            <Link href="/dashboard" className="rounded-2xl bg-orange-600 p-5 text-center text-xl font-black text-white">Entrer comme administrateur</Link>
-            <Link href="/crew" className="rounded-2xl bg-slate-800 p-5 text-center text-xl font-black text-white">Voir portail employes</Link>
-          </div>
+        <section className="mt-6 grid gap-4 md:grid-cols-3">
+          <div className="pro-card p-5"><p className="text-sm font-black uppercase tracking-widest text-slate-400">Admin</p><p className="mt-2 text-lg font-bold text-slate-300">Acces complet: employes, paie, contrats, devis, factures, finances, IA.</p></div>
+          <div className="pro-card p-5"><p className="text-sm font-black uppercase tracking-widest text-slate-400">Employe</p><p className="mt-2 text-lg font-bold text-slate-300">Acces limite: mes chantiers, mes taches, mes heures et ma paie.</p></div>
+          <div className="pro-card p-5"><p className="text-sm font-black uppercase tracking-widest text-slate-400">Sous-traitant</p><p className="mt-2 text-lg font-bold text-slate-300">Acces limite: production, photos, taches et invoice a la compagnie.</p></div>
         </section>
       </section>
     </main>

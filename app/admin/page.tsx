@@ -7,6 +7,8 @@ import { CatalogTools } from "@/components/CatalogTools";
 import { InventoryTools } from "@/components/InventoryTools";
 import { SignatureBox } from "@/components/SignatureBox";
 import { InvoiceCalculator } from "@/components/InvoiceCalculator";
+import { StorageSelector } from "@/components/StorageSelector";
+import { FinanceMiniChart } from "@/components/FinanceMiniChart";
 
 export default function Admin() {
   return (
@@ -22,6 +24,7 @@ export default function Admin() {
         <TrendCard label="Documents" value="0" compare="Devis contrats factures" status="Brouillon" />
         <TrendCard label="IA" value="ON" compare="Mode demo local" status="Actif" />
       </section>
+      <FinanceMiniChart />
       <AdminTools />
       <BusinessTools />
       <InvoiceCalculator />
@@ -29,6 +32,7 @@ export default function Admin() {
       <CatalogTools />
       <InventoryTools />
       <PayrollMini />
+      <StorageSelector />
       <section className="pro-panel mt-6 p-6">
         <h2 className="text-2xl font-black text-orange-400">Securite portails</h2>
         <p className="large-readable mt-4 text-slate-300">Employes et sous-traitants voient seulement leurs donnees. Les clients, finances, profits, devis, contrats et rapports admin restent caches.</p>

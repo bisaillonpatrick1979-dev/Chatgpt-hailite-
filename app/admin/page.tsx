@@ -3,6 +3,7 @@ import { TrendCard } from "@/components/TrendCard";
 import { AdminTools } from "@/components/AdminTools";
 import { BusinessTools } from "@/components/BusinessTools";
 import { PayrollMini } from "@/components/PayrollMini";
+import { CatalogTools } from "@/components/CatalogTools";
 
 export default function Admin() {
   return (
@@ -10,7 +11,7 @@ export default function Admin() {
       <section className="rounded-[2rem] border border-slate-800 bg-[radial-gradient(circle_at_top_left,#1f2937,#0b0f17_55%)] p-6 shadow-2xl">
         <p className="text-sm font-black uppercase tracking-[0.3em] text-orange-400">Administration complete</p>
         <h1 className="text-5xl font-black">Centre de controle</h1>
-        <p className="large-readable mt-3 text-slate-300">Employes, clients, sous-traitants, chantiers, contrats, devis, factures, paie, finances, IA et securite.</p>
+        <p className="large-readable mt-3 text-slate-300">Employes, clients, sous-traitants, chantiers, contrats, devis, factures, catalogue, paie, finances, IA et securite.</p>
       </section>
       <section className="mt-5 grid gap-4 md:grid-cols-4">
         <TrendCard label="Employes" value="4" compare="+1 vs mois passe" status="Hausse" />
@@ -20,6 +21,7 @@ export default function Admin() {
       </section>
       <AdminTools />
       <BusinessTools />
+      <CatalogTools />
       <PayrollMini />
       <section className="pro-panel mt-6 p-6">
         <h2 className="text-2xl font-black text-orange-400">Securite portails</h2>

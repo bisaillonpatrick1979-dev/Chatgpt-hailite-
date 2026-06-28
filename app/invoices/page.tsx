@@ -1,4 +1,5 @@
-import { AppShell, ProMetric } from "@/components/AppShell";
+import { AppShell } from "@/components/AppShell";
+import { TrendCard } from "@/components/TrendCard";
 
 export default function Page() {
   return (
@@ -8,9 +9,9 @@ export default function Page() {
         <p className="large-readable mt-3 text-slate-400">Devis, contrats, factures clients, invoices sous-traitants et signatures tactiles.</p>
       </section>
       <section className="mt-5 grid gap-4 md:grid-cols-3">
-        <ProMetric label="Recevables" value="0$" note="Factures impayees" tone="blue" />
-        <ProMetric label="Devis signes" value="14199$" note="Prets a facturer" tone="green" />
-        <ProMetric label="Invoices" value="3" note="A approuver" tone="orange" />
+        <TrendCard label="Recevables" value="0$" compare="-100% vs mois passe" status="Baisse" />
+        <TrendCard label="Devis signes" value="14199$" compare="+8% vs mois passe" status="Hausse" />
+        <TrendCard label="Invoices" value="3" compare="A approuver cette semaine" status="Action" />
       </section>
       <section className="pro-panel mt-6 p-6">
         <div className="grid gap-3 md:grid-cols-2">

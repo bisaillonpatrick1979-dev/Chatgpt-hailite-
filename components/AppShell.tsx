@@ -1,79 +1,106 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { BarChart3, BriefcaseBusiness, Camera, Clock3, FileText, MapPin, ShieldCheck, UsersRound } from "lucide-react";
+import { BarChart3, Box, BriefcaseBusiness, Calculator, ClipboardList, Clock3, FileText, Home, MapPin, MessageSquare, Settings, Target, UsersRound } from "lucide-react";
 
 const navItems = [
-  { href: "/", label: "Accueil", icon: BarChart3 },
+  { href: "/", label: "Accueil", icon: Home },
+  { href: "/invoices", label: "Factures", icon: FileText },
+  { href: "/projects", label: "Projets", icon: MapPin },
+  { href: "/tasks", label: "Taches", icon: ClipboardList },
+  { href: "/calculator", label: "Calcul", icon: Calculator },
+  { href: "/production", label: "Stats", icon: BarChart3 },
+  { href: "/punch", label: "Punch", icon: Clock3 },
+  { href: "/settings", label: "Reglages", icon: Settings }
+];
+
+const sideItems = [
+  { href: "/", label: "Tableau de bord", icon: BarChart3 },
+  { href: "/punch", label: "Punch", icon: Clock3 },
   { href: "/projects", label: "Chantiers", icon: MapPin },
-  { href: "/worker", label: "Employe", icon: Clock3 },
-  { href: "/contractor", label: "Sous-traitant", icon: BriefcaseBusiness },
-  { href: "/admin", label: "Admin", icon: ShieldCheck }
+  { href: "/worker", label: "RH", icon: UsersRound },
+  { href: "/invoices", label: "Facturation", icon: FileText },
+  { href: "/calculator", label: "Calculatrice", icon: Calculator },
+  { href: "/contractor", label: "Sous-traitants", icon: BriefcaseBusiness },
+  { href: "/production", label: "Comptabilite", icon: Box },
+  { href: "/tasks", label: "Cibles", icon: Target },
+  { href: "/settings", label: "Parametres", icon: Settings }
 ];
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-950">
-      <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col">
-        <header className="sticky top-0 z-20 border-b border-white bg-white px-4 py-3">
+    <main className="min-h-screen bg-[#0b0f17] text-slate-100">
+      <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-slate-800 bg-[#0f1722] lg:block">
+        <div className="flex items-center gap-3 border-b border-slate-800 p-5">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-600 text-2xl font-black text-white">HX</div>
+          <div>
+            <p className="text-lg font-black leading-tight">HAILITE XTERIORS INC.</p>
+            <p className="text-sm font-black uppercase tracking-widest text-orange-400">Gestion Chantier Pro</p>
+          </div>
+        </div>
+        <nav className="grid gap-1 p-3">
+          {sideItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <Link key={item.href} href={item.href} className="flex items-center gap-3 rounded-xl px-4 py-3 text-lg font-black text-slate-300 hover:bg-slate-800 hover:text-white">
+                <Icon className="h-6 w-6 text-slate-400" />
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+      </aside>
+
+      <div className="lg:pl-72">
+        <header className="sticky top-0 z-20 border-b border-slate-800 bg-[#101722]/95 px-4 py-3 backdrop-blur">
           <div className="flex items-center justify-between gap-3">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-sky-600">Hailite</p>
-              <h1 className="text-xl font-black tracking-tight">Construction Manager</h1>
+            <div className="flex items-center gap-3 lg:hidden">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-600 text-xl font-black">HX</div>
+              <div>
+                <p className="text-base font-black">HAILITE XTERIORS INC.</p>
+                <p className="text-xs font-black uppercase tracking-widest text-orange-400">Gestion Chantier Pro</p>
+              </div>
             </div>
-            <div className="rounded-full bg-slate-950 px-3 py-2 text-xs font-bold text-white">CAD pi2</div>
+            <div className="hidden lg:block">
+              <p className="text-sm font-black uppercase tracking-widest text-orange-400">Mode lisibilite elevee</p>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="hidden rounded-lg bg-orange-500 px-4 py-2 text-sm font-black text-white md:inline-flex">Guide de Validation app</span>
+              <span className="rounded-lg bg-slate-800 px-3 py-2 text-sm font-black">FR</span>
+              <span className="hidden text-base font-black md:inline">Patrick Bisaillon</span>
+              <button className="rounded-lg border border-red-900 bg-red-950/50 px-4 py-2 text-sm font-black text-red-200">Deconnexion</button>
+            </div>
           </div>
         </header>
-        <section className="flex-1 px-4 py-5 pb-28">{children}</section>
-        <nav className="fixed inset-x-0 bottom-0 z-30 border-t border-slate-200 bg-white px-2 py-2 md:hidden">
-          <div className="mx-auto grid max-w-2xl grid-cols-5 gap-1">
+
+        <section className="mx-auto max-w-7xl px-4 py-6 pb-28">{children}</section>
+
+        <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-800 bg-[#101722] px-1 py-2 lg:hidden">
+          <div className="grid grid-cols-8 gap-1">
             {navItems.map((item) => {
               const Icon = item.icon;
               return (
-                <Link key={item.href} href={item.href} className="flex min-h-16 flex-col items-center justify-center rounded-2xl px-2 text-center text-xs font-bold text-slate-700">
-                  <Icon className="mb-1 h-5 w-5" />
+                <Link key={item.href} href={item.href} className="flex min-h-16 flex-col items-center justify-center rounded-xl text-center text-[10px] font-black uppercase text-slate-300">
+                  <Icon className="mb-1 h-5 w-5 text-orange-400" />
                   {item.label}
                 </Link>
               );
             })}
           </div>
         </nav>
-        <aside className="hidden border-t border-slate-200 bg-white p-3 md:block">
-          <div className="flex flex-wrap justify-center gap-2">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link key={item.href} href={item.href} className="flex items-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold text-slate-700">
-                  <Icon className="h-5 w-5" />
-                  {item.label}
-                </Link>
-              );
-            })}
-          </div>
-        </aside>
+
+        <button className="fixed bottom-24 right-5 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-3xl shadow-2xl lg:bottom-8">✨</button>
       </div>
     </main>
   );
 }
 
-export function StatCard({ label, value, detail }: { label: string; value: string; detail: string }) {
+export function ProMetric({ label, value, note, tone = "green" }: { label: string; value: string; note: string; tone?: "green" | "orange" | "blue" }) {
+  const color = tone === "green" ? "text-green-400" : tone === "orange" ? "text-orange-400" : "text-blue-400";
   return (
-    <div className="rounded-3xl border border-white bg-white p-5 shadow-sm">
-      <p className="text-sm font-bold text-slate-500">{label}</p>
-      <p className="mt-2 text-3xl font-black tracking-tight text-slate-950">{value}</p>
-      <p className="mt-2 text-sm text-slate-600">{detail}</p>
-    </div>
-  );
-}
-
-export function ActionCard({ title, text, icon }: { title: string; text: string; icon: "users" | "camera" | "file" }) {
-  const Icon = icon === "users" ? UsersRound : icon === "camera" ? Camera : FileText;
-  return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-100 text-sky-700">
-        <Icon className="h-6 w-6" />
-      </div>
-      <h3 className="text-lg font-black">{title}</h3>
-      <p className="mt-2 text-sm leading-6 text-slate-600">{text}</p>
-    </div>
+    <section className="pro-card p-5">
+      <p className="text-sm font-black uppercase tracking-widest text-slate-400">{label}</p>
+      <p className={`mt-3 text-4xl font-black ${color}`}>{value}</p>
+      <p className="mt-2 text-base font-bold text-slate-400">{note}</p>
+    </section>
   );
 }

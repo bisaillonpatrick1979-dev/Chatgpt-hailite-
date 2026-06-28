@@ -1,13 +1,30 @@
-import { AppShell } from "@/components/AppShell";
-import { PageHeader } from "@/components/PageHeader";
-import { ReadableList } from "@/components/ReadableList";
+import { AppShell, ProMetric } from "@/components/AppShell";
 
 export default function Page() {
   return (
     <AppShell>
-      <PageHeader title="Invoices" eyebrow="Factures et paiements" text="Factures clients, invoices sous-traitants, signatures tactiles, approbations et statuts de paiement." />
-      <section className="mt-5">
-        <ReadableList items={["Facture client", "Invoice sous-traitant", "Signature tactile obligatoire", "Approbation admin avant paiement"]} />
+      <section className="pro-card p-6">
+        <h1 className="text-5xl font-black">Documents et factures</h1>
+        <p className="large-readable mt-3 text-slate-400">Devis, contrats, factures clients, invoices sous-traitants et signatures tactiles.</p>
+      </section>
+      <section className="mt-5 grid gap-4 md:grid-cols-3">
+        <ProMetric label="Recevables" value="0$" note="Factures impayees" tone="blue" />
+        <ProMetric label="Devis signes" value="14199$" note="Prets a facturer" tone="green" />
+        <ProMetric label="Invoices" value="3" note="A approuver" tone="orange" />
+      </section>
+      <section className="pro-panel mt-6 p-6">
+        <div className="grid gap-3 md:grid-cols-2">
+          <article className="rounded-2xl border border-slate-700 bg-slate-950 p-5">
+            <p className="text-xl font-black">FAC-2026-0001</p>
+            <h2 className="mt-2 text-2xl font-black">Hydro-Quebec Renovations</h2>
+            <p className="mt-3 text-lg font-black text-green-400">Paye · 0.00$ du</p>
+          </article>
+          <article className="rounded-2xl border border-slate-700 bg-slate-950 p-5">
+            <p className="text-xl font-black">DEV-2026-0001</p>
+            <h2 className="mt-2 text-2xl font-black">Jean Larouche</h2>
+            <p className="mt-3 text-lg font-black text-orange-400">Accepte · 14199.41$</p>
+          </article>
+        </div>
       </section>
     </AppShell>
   );

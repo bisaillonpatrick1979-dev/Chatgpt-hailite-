@@ -12,8 +12,8 @@ html {
 
 body {
   margin: 0;
-  background: #f8fafc;
-  color: #0f172a;
+  background: #0b0f17;
+  color: #f8fafc;
   font-family: Arial, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -38,18 +38,43 @@ button, a {
 }
 
 .big-number {
-  font-size: clamp(2.25rem, 8vw, 4.5rem);
+  font-size: clamp(2rem, 7vw, 4rem);
   line-height: 1;
   font-weight: 900;
   letter-spacing: -0.04em;
 }
 
-.card-readable {
-  border: 1px solid #cbd5e1;
+.pro-card {
+  border: 1px solid #263244;
+  border-radius: 1.35rem;
+  background: linear-gradient(180deg, #151b26 0%, #111722 100%);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+}
+
+.pro-panel {
+  border: 1px solid #334155;
   border-radius: 1.5rem;
-  background: #ffffff;
+  background: #121821;
+}
+
+.pro-orange {
+  color: #fb923c;
+}
+
+.pro-green {
+  color: #22c55e;
+}
+
+.pro-muted {
+  color: #94a3b8;
+}
+
+.card-readable {
+  border: 1px solid #263244;
+  border-radius: 1.5rem;
+  background: #151b26;
   padding: 1.25rem;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .status-dot {

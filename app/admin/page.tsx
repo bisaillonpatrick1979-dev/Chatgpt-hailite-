@@ -2,6 +2,7 @@ import { AppShell } from "@/components/AppShell";
 import { TrendCard } from "@/components/TrendCard";
 import { AdminTools } from "@/components/AdminTools";
 import { BusinessTools } from "@/components/BusinessTools";
+import { PayrollMini } from "@/components/PayrollMini";
 
 export default function Admin() {
   return (
@@ -19,6 +20,7 @@ export default function Admin() {
       </section>
       <AdminTools />
       <BusinessTools />
+      <PayrollMini />
       <section className="pro-panel mt-6 p-6">
         <h2 className="text-2xl font-black text-orange-400">Securite portails</h2>
         <p className="large-readable mt-4 text-slate-300">Employes et sous-traitants voient seulement leurs donnees. Les clients, finances, profits, devis, contrats et rapports admin restent caches.</p>

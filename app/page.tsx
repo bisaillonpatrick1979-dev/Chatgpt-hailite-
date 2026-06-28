@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { QuickStartPanel } from "@/components/QuickStartPanel";
 
 const people = [
   { name: "Patrick Bisaillon", role: "Administrateur", initials: "PB", href: "/admin", color: "bg-orange-600", status: "Acces complet" },
@@ -15,30 +16,18 @@ export default function Root() {
           <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
             <div className="flex items-center gap-4">
               <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-orange-600 text-4xl font-black text-white shadow-xl">HX</div>
-              <div>
-                <p className="text-sm font-black uppercase tracking-[0.3em] text-orange-400">Hailite Manager</p>
-                <h1 className="text-4xl font-black leading-tight md:text-6xl">Portail securise</h1>
-              </div>
+              <div><p className="text-sm font-black uppercase tracking-[0.3em] text-orange-400">Hailite Manager</p><h1 className="text-4xl font-black leading-tight md:text-6xl">Portail securise</h1></div>
             </div>
             <Link href="/onboarding" className="rounded-2xl bg-slate-800 px-5 py-4 text-center text-lg font-black text-white">Region & IA</Link>
           </div>
           <p className="large-readable mt-6 max-w-4xl text-slate-300">Choisis ton avatar, entre ton PIN, puis l application ouvre seulement le portail autorise pour ton role.</p>
         </div>
-
+        <QuickStartPanel />
         <section className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {people.map((person) => (
             <article key={person.name} className="rounded-[1.7rem] border border-slate-800 bg-[#101722] p-5 shadow-2xl">
-              <div className="flex items-center gap-4">
-                <div className={`flex h-20 w-20 items-center justify-center rounded-3xl ${person.color} text-3xl font-black text-white shadow-xl`}>{person.initials}</div>
-                <div>
-                  <h2 className="text-2xl font-black text-white">{person.name}</h2>
-                  <p className="mt-1 text-lg font-bold text-slate-400">{person.role}</p>
-                </div>
-              </div>
-              <div className="mt-5 rounded-2xl border border-slate-800 bg-slate-950 p-4">
-                <p className="text-sm font-black uppercase tracking-widest text-slate-500">Acces</p>
-                <p className="mt-1 text-xl font-black text-orange-400">{person.status}</p>
-              </div>
+              <div className="flex items-center gap-4"><div className={`flex h-20 w-20 items-center justify-center rounded-3xl ${person.color} text-3xl font-black text-white shadow-xl`}>{person.initials}</div><div><h2 className="text-2xl font-black text-white">{person.name}</h2><p className="mt-1 text-lg font-bold text-slate-400">{person.role}</p></div></div>
+              <div className="mt-5 rounded-2xl border border-slate-800 bg-slate-950 p-4"><p className="text-sm font-black uppercase tracking-widest text-slate-500">Acces</p><p className="mt-1 text-xl font-black text-orange-400">{person.status}</p></div>
               <input className="mt-4 w-full rounded-2xl border border-slate-700 bg-slate-950 p-4 text-center text-2xl font-black tracking-widest text-white" placeholder="PIN" />
               <Link href={person.href} className="mt-4 flex justify-center rounded-2xl bg-orange-600 p-4 text-xl font-black text-white">Entrer</Link>
             </article>

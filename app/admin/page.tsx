@@ -1,5 +1,6 @@
 import { AppShell } from "@/components/AppShell";
 import { TrendCard } from "@/components/TrendCard";
+import { AdminTools } from "@/components/AdminTools";
 
 export default function Admin() {
   return (
@@ -13,21 +14,12 @@ export default function Admin() {
         <TrendCard label="Employes" value="4" compare="+1 vs mois passe" status="Hausse" />
         <TrendCard label="Chantiers" value="3" compare="Stable vs semaine passee" status="Stable" />
         <TrendCard label="Paie" value="0$" compare="Semaine courante" status="A valider" />
-        <TrendCard label="IA" value="ON" compare="Region: Alberta" status="Actif" />
+        <TrendCard label="IA" value="ON" compare="Mode demo local" status="Actif" />
       </section>
-      <section className="mt-6 grid gap-4 lg:grid-cols-2">
-        <div className="pro-panel p-6">
-          <h2 className="text-2xl font-black text-orange-400">Inviter un travailleur</h2>
-          <div className="mt-4 grid gap-3">
-            <input className="rounded-2xl border border-slate-700 bg-slate-950 p-4 text-xl font-bold text-white" placeholder="Nom" />
-            <input className="rounded-2xl border border-slate-700 bg-slate-950 p-4 text-xl font-bold text-white" placeholder="Email ou telephone" />
-            <button className="rounded-2xl bg-orange-600 p-4 text-xl font-black text-white">Envoyer invitation</button>
-          </div>
-        </div>
-        <div className="pro-panel p-6">
-          <h2 className="text-2xl font-black text-orange-400">Securite portails</h2>
-          <p className="large-readable mt-4 text-slate-300">Employes et sous-traitants voient seulement leurs donnees. Les finances, profits et rapports admin restent caches.</p>
-        </div>
+      <AdminTools />
+      <section className="pro-panel mt-6 p-6">
+        <h2 className="text-2xl font-black text-orange-400">Securite portails</h2>
+        <p className="large-readable mt-4 text-slate-300">Employes et sous-traitants voient seulement leurs donnees. Les finances, profits et rapports admin restent caches.</p>
       </section>
     </AppShell>
   );

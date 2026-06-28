@@ -1,5 +1,6 @@
 import { AppShell } from "@/components/AppShell";
 import { TrendCard } from "@/components/TrendCard";
+import { ProjectBuilder } from "@/components/ProjectBuilder";
 
 const projects = [
   { name: "Chantier Hydro-Quebec", client: "Hydro-Quebec Renovations", progress: "72%", pay: "9975$", tasks: ["Changer les fascias", "Changer le soffit", "Refaire le mur sud", "Photos finales"] },
@@ -20,13 +21,9 @@ export default function Page() {
         <TrendCard label="Taches ouvertes" value="12" compare="-3 vs semaine passee" status="Amelioration" />
         <TrendCard label="Valeur active" value="15713$" compare="CAD · chantiers ouverts" status="A suivre" />
       </section>
+      <ProjectBuilder />
       <section className="pro-panel mt-6 p-6">
-        <div className="grid gap-3 md:grid-cols-3">
-          <button className="rounded-2xl bg-orange-600 p-5 text-xl font-black">Nouveau projet</button>
-          <button className="rounded-2xl bg-slate-800 p-5 text-xl font-black">Utiliser ma position</button>
-          <button className="rounded-2xl bg-slate-800 p-5 text-xl font-black">Choisir sur carte</button>
-        </div>
-        <div className="mt-6 grid gap-5">
+        <div className="mt-2 grid gap-5">
           {projects.map((project) => (
             <article key={project.name} className="rounded-2xl border border-slate-700 bg-slate-950 p-5 shadow-xl">
               <div className="flex flex-col justify-between gap-3 md:flex-row md:items-start">
@@ -34,14 +31,9 @@ export default function Page() {
                   <h2 className="text-3xl font-black text-white">{project.name}</h2>
                   <p className="mt-2 text-lg font-bold text-slate-400">Client: {project.client}</p>
                 </div>
-                <div className="text-left md:text-right">
-                  <p className="text-3xl font-black text-green-400">{project.progress}</p>
-                  <p className="text-lg font-black text-orange-400">{project.pay}</p>
-                </div>
+                <div className="text-left md:text-right"><p className="text-3xl font-black text-green-400">{project.progress}</p><p className="text-lg font-black text-orange-400">{project.pay}</p></div>
               </div>
-              <div className="mt-5 h-4 overflow-hidden rounded-full bg-slate-800">
-                <div className="h-full rounded-full bg-orange-500" style={{ width: project.progress }} />
-              </div>
+              <div className="mt-5 h-4 overflow-hidden rounded-full bg-slate-800"><div className="h-full rounded-full bg-orange-500" style={{ width: project.progress }} /></div>
               <div className="mt-5 grid gap-3 md:grid-cols-2">
                 {project.tasks.map((task) => <div key={task} className="rounded-xl border border-slate-800 bg-[#121821] p-4 text-xl font-black text-slate-100">□ {task}</div>)}
               </div>

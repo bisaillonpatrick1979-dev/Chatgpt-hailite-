@@ -5,6 +5,7 @@ import { FinanceMiniChart } from "@/components/FinanceMiniChart";
 import { DocumentStatusCard } from "@/components/DocumentStatusCard";
 import { ProjectSummaryCard } from "@/components/ProjectSummaryCard";
 import { WorkerSummaryCard } from "@/components/WorkerSummaryCard";
+import { OperationsHub } from "@/components/OperationsHub";
 
 export default function Page() {
   return (
@@ -29,6 +30,7 @@ export default function Page() {
         <TrendCard label="Punches actifs" value="0 / 3" compare="Stable vs hier" status="Stable" />
         <TrendCard label="Factures dues" value="12500$" compare="+8% vs mois passe" status="A surveiller" />
       </section>
+      <OperationsHub />
       <FinanceMiniChart />
       <section className="mt-6 grid gap-4 xl:grid-cols-3">
         <ProjectSummaryCard title="Chantier Hydro-Quebec" client="Hydro-Quebec Renovations" progress={72} />

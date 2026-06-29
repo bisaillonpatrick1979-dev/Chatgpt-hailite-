@@ -9,6 +9,7 @@ import { SignatureBox } from "@/components/SignatureBox";
 import { InvoiceCalculator } from "@/components/InvoiceCalculator";
 import { StorageSelector } from "@/components/StorageSelector";
 import { FinanceMiniChart } from "@/components/FinanceMiniChart";
+import { LocalDataNotice } from "@/components/LocalDataNotice";
 
 export default function Admin() {
   return (
@@ -18,6 +19,7 @@ export default function Admin() {
         <h1 className="text-5xl font-black">Centre de controle</h1>
         <p className="large-readable mt-3 text-slate-300">Employes, clients, sous-traitants, chantiers, contrats, devis, factures, catalogue, inventaire, paie, signatures, finances, IA et securite.</p>
       </section>
+      <div className="mt-5"><LocalDataNotice /></div>
       <section className="mt-5 grid gap-4 md:grid-cols-4">
         <TrendCard label="Employes" value="4" compare="+1 vs mois passe" status="Hausse" />
         <TrendCard label="Clients" value="0" compare="CRM local actif" status="A remplir" />

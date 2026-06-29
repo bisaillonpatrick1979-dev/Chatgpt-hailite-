@@ -7,14 +7,18 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 body {
   margin: 0;
-  background: #0b0f17;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(249, 115, 22, 0.18), transparent 30rem),
+    radial-gradient(circle at 80% 10%, rgba(59, 130, 246, 0.16), transparent 28rem),
+    linear-gradient(135deg, #070b12 0%, #0c1220 45%, #070b12 100%);
   color: #f8fafc;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, Arial, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -29,32 +33,56 @@ button, input, select, textarea {
 }
 
 button, a {
-  min-height: 48px;
+  min-height: 42px;
+}
+
+button, a, input, select, textarea {
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+button:hover, a:hover {
+  transform: translateY(-1px);
+}
+
+input, select, textarea {
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #fb923c !important;
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.16);
 }
 
 .large-readable {
-  font-size: 1.125rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .big-number {
-  font-size: clamp(2rem, 7vw, 4rem);
+  font-size: clamp(1.8rem, 6vw, 3.4rem);
   line-height: 1;
   font-weight: 900;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
 }
 
 .pro-card {
-  border: 1px solid #263244;
+  border: 1px solid rgba(148, 163, 184, 0.16);
   border-radius: 1.35rem;
-  background: linear-gradient(180deg, #151b26 0%, #111722 100%);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015)),
+    linear-gradient(135deg, #151c2a 0%, #0f1623 100%);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
 }
 
 .pro-panel {
-  border: 1px solid #334155;
-  border-radius: 1.5rem;
-  background: #121821;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 1.45rem;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012)),
+    #101722;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
 .pro-orange {
@@ -70,22 +98,31 @@ button, a {
 }
 
 .card-readable {
-  border: 1px solid #263244;
-  border-radius: 1.5rem;
-  background: #151b26;
-  padding: 1.25rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 1.35rem;
+  background: linear-gradient(180deg, #151b26 0%, #101722 100%);
+  padding: 1rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
 }
 
 .status-dot {
   display: inline-flex;
-  height: 0.9rem;
-  width: 0.9rem;
+  height: 0.75rem;
+  width: 0.75rem;
   border-radius: 999px;
+}
+
+.premium-glow {
+  box-shadow: 0 0 0 1px rgba(251, 146, 60, 0.18), 0 22px 70px rgba(249, 115, 22, 0.14);
+}
+
+.soft-grid {
+  background-image: linear-gradient(rgba(148,163,184,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 19px;
+    font-size: 16px;
   }
 }

@@ -1,6 +1,7 @@
 import { AppShell } from "@/components/AppShell";
 import { TrendCard } from "@/components/TrendCard";
 import { ProjectBuilder } from "@/components/ProjectBuilder";
+import { WorkOrderCenter } from "@/components/WorkOrderCenter";
 
 const projects = [
   { name: "Chantier Hydro-Quebec", client: "Hydro-Quebec Renovations", progress: "72%", pay: "9975$", tasks: ["Changer les fascias", "Changer le soffit", "Refaire le mur sud", "Photos finales"] },
@@ -26,6 +27,7 @@ export default function Page() {
         <button className="rounded-2xl bg-slate-800 p-5 text-xl font-black text-white">Choisir sur Google Maps</button>
         <button className="rounded-2xl bg-slate-800 p-5 text-xl font-black text-white">Assigner equipe</button>
       </section>
+      <WorkOrderCenter />
       <ProjectBuilder />
       <section className="pro-panel mt-6 p-6">
         <div className="mt-2 grid gap-5">

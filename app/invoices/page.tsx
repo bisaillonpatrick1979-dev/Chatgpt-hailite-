@@ -1,5 +1,8 @@
 import { AppShell } from "@/components/AppShell";
 import { TrendCard } from "@/components/TrendCard";
+import { InvoiceCalculator } from "@/components/InvoiceCalculator";
+import { SignatureBox } from "@/components/SignatureBox";
+import { DocumentStatusCard } from "@/components/DocumentStatusCard";
 
 export default function Page() {
   return (
@@ -13,20 +16,12 @@ export default function Page() {
         <TrendCard label="Devis signes" value="14199$" compare="+8% vs mois passe" status="Hausse" />
         <TrendCard label="Invoices" value="3" compare="A approuver cette semaine" status="Action" />
       </section>
-      <section className="pro-panel mt-6 p-6">
-        <div className="grid gap-3 md:grid-cols-2">
-          <article className="rounded-2xl border border-slate-700 bg-slate-950 p-5">
-            <p className="text-xl font-black">FAC-2026-0001</p>
-            <h2 className="mt-2 text-2xl font-black">Hydro-Quebec Renovations</h2>
-            <p className="mt-3 text-lg font-black text-green-400">Paye · 0.00$ du</p>
-          </article>
-          <article className="rounded-2xl border border-slate-700 bg-slate-950 p-5">
-            <p className="text-xl font-black">DEV-2026-0001</p>
-            <h2 className="mt-2 text-2xl font-black">Jean Larouche</h2>
-            <p className="mt-3 text-lg font-black text-orange-400">Accepte · 14199.41$</p>
-          </article>
-        </div>
+      <section className="mt-6 grid gap-4 md:grid-cols-2">
+        <DocumentStatusCard number="FAC-2026-0001" client="Hydro-Quebec Renovations" amount="0.00$" status="Payee" />
+        <DocumentStatusCard number="DEV-2026-0001" client="Jean Larouche" amount="14199.41$" status="Accepte" />
       </section>
+      <InvoiceCalculator />
+      <SignatureBox />
     </AppShell>
   );
 }

@@ -10,10 +10,12 @@ import { InvoiceCalculator } from "@/components/InvoiceCalculator";
 import { StorageSelector } from "@/components/StorageSelector";
 import { FinanceMiniChart } from "@/components/FinanceMiniChart";
 import { LocalDataNotice } from "@/components/LocalDataNotice";
+import { RoleAccessNotice } from "@/components/RoleAccessNotice";
 
 export default function Admin() {
   return (
     <AppShell>
+      <RoleAccessNotice allowedRoles={["Administrateur"]} />
       <section className="rounded-[2rem] border border-slate-800 bg-[radial-gradient(circle_at_top_left,#1f2937,#0b0f17_55%)] p-6 shadow-2xl">
         <p className="text-sm font-black uppercase tracking-[0.3em] text-orange-400">Administration complete</p>
         <h1 className="text-5xl font-black">Centre de controle</h1>

@@ -2,26 +2,54 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-[#070b12] p-4 text-slate-100">
-      <section className="mx-auto max-w-6xl pt-6">
-        <div className="rounded-[2rem] border border-slate-800 bg-[#101722] p-6 shadow-2xl">
-          <p className="text-sm font-black uppercase tracking-[0.3em] text-orange-400">Configuration initiale</p>
-          <h1 className="mt-2 text-4xl font-black md:text-6xl">Region, langue, stockage et IA</h1>
-          <p className="large-readable mt-4 text-slate-300">Choisis le pays, la province ou l etat, les taxes, les unites, le stockage et le moteur IA de la compagnie.</p>
-        </div>
-        <section className="mt-6 grid gap-4 md:grid-cols-3">
-          <div className="pro-card p-5"><p className="text-sm font-black uppercase tracking-widest text-slate-400">Langue</p><p className="mt-3 text-4xl font-black text-orange-400">FR</p><p className="mt-2 text-lg font-bold text-slate-300">Francais, anglais, espagnol</p></div>
-          <div className="pro-card p-5"><p className="text-sm font-black uppercase tracking-widest text-slate-400">Region</p><p className="mt-3 text-4xl font-black text-blue-400">Alberta</p><p className="mt-2 text-lg font-bold text-slate-300">Canada · GST 5%</p></div>
-          <div className="pro-card p-5"><p className="text-sm font-black uppercase tracking-widest text-slate-400">IA</p><p className="mt-3 text-4xl font-black text-green-400">OpenAI</p><p className="mt-2 text-lg font-bold text-slate-300">Gemini ou Claude possible</p></div>
+    <main className="soft-grid min-h-screen text-slate-100">
+      <section className="mx-auto max-w-5xl px-4 py-8">
+        <header className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 text-center shadow-2xl backdrop-blur-xl">
+          <p className="text-xs font-black uppercase tracking-[0.34em] text-orange-300">Premiere utilisation</p>
+          <h1 className="mt-3 text-4xl font-black tracking-[-0.05em] text-white md:text-6xl">Configuration initiale</h1>
+          <p className="mx-auto mt-4 max-w-2xl text-sm font-semibold leading-6 text-slate-300">Avant d'afficher les profils, le proprietaire configure la region, les taxes, les unites, le stockage et les portails.</p>
+        </header>
+
+        <section className="mt-5 grid gap-4 md:grid-cols-2">
+          <div className="rounded-[1.6rem] border border-white/10 bg-white/[0.045] p-5 shadow-xl backdrop-blur-xl">
+            <p className="text-xs font-black uppercase tracking-widest text-slate-400">1 · Region</p>
+            <div className="mt-4 grid gap-3">
+              <select className="rounded-xl border border-white/10 bg-slate-950/70 p-3 text-sm font-bold text-white"><option>Canada</option><option>United States</option><option>Europe</option></select>
+              <select className="rounded-xl border border-white/10 bg-slate-950/70 p-3 text-sm font-bold text-white"><option>Alberta</option><option>Quebec</option><option>Texas</option><option>Other</option></select>
+              <select className="rounded-xl border border-white/10 bg-slate-950/70 p-3 text-sm font-bold text-white"><option>Francais</option><option>English</option></select>
+            </div>
+          </div>
+
+          <div className="rounded-[1.6rem] border border-white/10 bg-white/[0.045] p-5 shadow-xl backdrop-blur-xl">
+            <p className="text-xs font-black uppercase tracking-widest text-slate-400">2 · Taxes et unites</p>
+            <div className="mt-4 grid gap-3">
+              <input className="rounded-xl border border-white/10 bg-slate-950/70 p-3 text-sm font-bold text-white" defaultValue="GST 5%" />
+              <select className="rounded-xl border border-white/10 bg-slate-950/70 p-3 text-sm font-bold text-white"><option>Pieds / pouces / pi2</option><option>Metrique</option></select>
+              <select className="rounded-xl border border-white/10 bg-slate-950/70 p-3 text-sm font-bold text-white"><option>CAD</option><option>USD</option><option>EUR</option></select>
+            </div>
+          </div>
+
+          <div className="rounded-[1.6rem] border border-white/10 bg-white/[0.045] p-5 shadow-xl backdrop-blur-xl">
+            <p className="text-xs font-black uppercase tracking-widest text-slate-400">3 · Stockage</p>
+            <div className="mt-4 grid gap-3">
+              <select className="rounded-xl border border-white/10 bg-slate-950/70 p-3 text-sm font-bold text-white"><option>Local appareil</option><option>Supabase</option><option>Google Drive</option><option>iCloud</option><option>NAS</option></select>
+              <p className="text-sm font-semibold leading-6 text-slate-300">La demo fonctionne localement. Supabase sera utilise pour multi-utilisateur reel.</p>
+            </div>
+          </div>
+
+          <div className="rounded-[1.6rem] border border-white/10 bg-white/[0.045] p-5 shadow-xl backdrop-blur-xl">
+            <p className="text-xs font-black uppercase tracking-widest text-slate-400">4 · Portails</p>
+            <div className="mt-4 grid gap-2 text-sm font-bold text-slate-200">
+              <p className="rounded-xl bg-slate-950/60 p-3">Admin voit tout</p>
+              <p className="rounded-xl bg-slate-950/60 p-3">Employe voit punch, taches et paie</p>
+              <p className="rounded-xl bg-slate-950/60 p-3">Sous-traitant voit production et factures</p>
+            </div>
+          </div>
         </section>
-        <section className="mt-6 grid gap-4 md:grid-cols-2">
-          <div className="pro-panel p-6"><h2 className="text-2xl font-black text-orange-400">Unites</h2><p className="large-readable mt-3 text-slate-300">Alberta: pieds, pouces, pieds carres et dollars CAD.</p></div>
-          <div className="pro-panel p-6"><h2 className="text-2xl font-black text-orange-400">Stockage</h2><p className="large-readable mt-3 text-slate-300">Prototype local, puis Supabase, Google Drive, iCloud ou NAS personnel.</p></div>
-        </section>
-        <section className="pro-panel mt-6 p-6">
-          <h2 className="text-3xl font-black text-white">Adaptation automatique</h2>
-          <p className="large-readable mt-3 text-slate-300">Alberta utilise CAD, GST, pieds, pouces et pi2. Texas utilise USD et ses propres regles. Europe utilise EUR, TVA et metrique.</p>
-          <Link href="/" className="mt-6 inline-flex rounded-2xl bg-orange-600 p-5 text-xl font-black text-white">Terminer et ouvrir les profils</Link>
+
+        <section className="mt-5 rounded-[1.6rem] border border-orange-400/20 bg-orange-500/10 p-5 text-center shadow-xl">
+          <p className="text-sm font-semibold leading-6 text-orange-100">Une fois configure, l'application revient a la liste verticale des profils. Aucune donnee de compagnie n'apparait avant connexion par PIN.</p>
+          <Link href="/" className="mt-4 inline-flex rounded-2xl bg-orange-600 px-6 py-3 text-sm font-black text-white">Terminer et ouvrir les profils</Link>
         </section>
       </section>
     </main>

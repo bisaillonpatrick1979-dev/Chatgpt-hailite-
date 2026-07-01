@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { BarChart3, Box, BriefcaseBusiness, Calculator, Clock3, FileText, Home, MapPin, Settings, UsersRound } from "lucide-react";
+import { CurrentUserBar } from "@/components/CurrentUserBar";
 
 const navItems = [
   { href: "/dashboard", label: "Accueil", icon: Home },
@@ -61,11 +62,10 @@ export function AppShell({ children }: { children: ReactNode }) {
             <div className="flex items-center gap-2">
               <Link href="/" className="hidden rounded-xl border border-white/10 bg-white/[0.045] px-4 py-2 text-xs font-black text-white md:inline-flex">Profils</Link>
               <span className="rounded-xl border border-white/10 bg-white/[0.045] px-3 py-2 text-xs font-black">FR</span>
-              <span className="hidden rounded-xl bg-orange-500/15 px-3 py-2 text-xs font-black text-orange-300 md:inline">Patrick Bisaillon</span>
             </div>
           </div>
         </header>
-        <section className="mx-auto max-w-[1500px] px-4 py-5 pb-28 md:px-6">{children}</section>
+        <section className="mx-auto max-w-[1500px] px-4 py-5 pb-28 md:px-6"><CurrentUserBar />{children}</section>
         <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#0b111d]/95 px-1 py-2 backdrop-blur-xl lg:hidden"><div className="grid grid-cols-7 gap-1">{navItems.map((item) => { const Icon = item.icon; return (<Link key={item.href} href={item.href} className="flex min-h-14 flex-col items-center justify-center rounded-xl text-center text-[9px] font-black uppercase text-slate-300 hover:bg-white/[0.06]"><Icon className="mb-1 h-4.5 w-4.5 text-orange-400" />{item.label}</Link>); })}</div></nav>
         <Link href="/admin" className="premium-glow fixed bottom-24 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-sm font-black shadow-2xl lg:bottom-8">IA</Link>
       </div>

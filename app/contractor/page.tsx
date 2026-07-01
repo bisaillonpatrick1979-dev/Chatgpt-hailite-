@@ -1,12 +1,13 @@
 import { AppShell } from "@/components/AppShell";
 import { PersonalPortalView } from "@/components/PersonalPortalView";
-import { RoleAccessNotice } from "@/components/RoleAccessNotice";
+import { RoleGate } from "@/components/RoleGate";
 
 export default function Contractor() {
   return (
     <AppShell>
-      <RoleAccessNotice allowedRoles={["Sous-traitant"]} />
-      <PersonalPortalView type="contractor" />
+      <RoleGate allowedRoles={["Sous-traitant"]}>
+        <PersonalPortalView type="contractor" />
+      </RoleGate>
     </AppShell>
   );
 }

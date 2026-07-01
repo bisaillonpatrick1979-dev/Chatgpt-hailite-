@@ -54,7 +54,6 @@ export function ProfileLoginList() {
           </div>
         </article>
       ))}
-      <p className="text-center text-xs font-bold text-slate-500">Demo PIN: admin 1979 · employe 1234 · sous-traitant 2222 · employe 3333</p>
     </section>
   );
 }
